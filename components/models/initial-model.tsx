@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Dialog,
   DialogContent,
@@ -6,8 +10,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useForm } from "react-hook-form";
+
+const formSchema = z.object({
+  name: z.string().min(1, {
+    message: "Server name is required",
+  }),
+  imageUrl: z.string().min(1, {
+    message: "Server Image is required",
+  }),
+});
 
 export const InitialModel = () => {
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      imageUrl: "",
+    },
+  });
+
   return (
     <Dialog open>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
