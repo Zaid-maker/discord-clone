@@ -30,6 +30,10 @@ export const InitialModel = () => {
     },
   });
 
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
   return (
     <Dialog open>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
