@@ -23,6 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { FileUpload } from "../file-upload";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -77,7 +78,9 @@ export const InitialModel = () => {
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Upload Image</FormLabel>
+                      <FormLabel>
+                        <FileUpload />
+                      </FormLabel>
                     </FormItem>
                   )}
                 />
