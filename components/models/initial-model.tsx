@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -19,6 +20,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -80,6 +82,9 @@ export const InitialModel = () => {
                 )}
               />
             </div>
+            <DialogFooter className="bg-gray-100 px-6 py-4">
+              <Button>Create Server</Button>
+            </DialogFooter>
           </form>
         </Form>
       </DialogContent>
