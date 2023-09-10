@@ -83,7 +83,7 @@ export const InitialModel = () => {
               />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button>Create Server</Button>
+              <Button variant="primary">Create Server</Button>
             </DialogFooter>
           </form>
         </Form>
