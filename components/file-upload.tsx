@@ -1,7 +1,14 @@
 "use client";
 
-import React from "react";
+import { UploadDropzone } from "@/lib/uploadthing";
+import "@uploadthing/react/styles.css";
 
-export const FileUpload = () => {
+interface FileUploadProps {
+  onChange: (url?: string) => void;
+  value: string;
+  endpoint: "messageFile" | "serverImage";
+}
+
+export const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
   return <div>FileUpload</div>;
 };
