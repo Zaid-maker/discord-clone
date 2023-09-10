@@ -78,13 +78,13 @@ export const InitialModel = () => {
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>
+                      <FormControl>
                         <FileUpload
                           endpoint="serverImage"
                           value={field.value}
                           onChange={field.onChange}
                         />
-                      </FormLabel>
+                      </FormControl>
                     </FormItem>
                   )}
                 />
