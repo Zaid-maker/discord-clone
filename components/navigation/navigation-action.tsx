@@ -1,7 +1,7 @@
 "use cllient";
 
+import { useModal } from "@/hooks/use-modal-store";
 import { Plus } from "lucide-react";
-import React from "react";
 import { ActionToolTip } from "../action-tooltip";
 
 export const NavigationAction = () => {
