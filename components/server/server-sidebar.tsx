@@ -2,7 +2,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { ChannelType } from "@prisma/client";
 import { redirect } from "next/navigation";
-import React from "react";
+import { ServerHeader } from "./server-header";
 
 interface ServerSidebarProps {
   serverId: string;
