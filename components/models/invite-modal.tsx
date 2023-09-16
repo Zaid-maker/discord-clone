@@ -12,7 +12,7 @@ import { useModal } from "@/hooks/use-modal-store";
 export const InviteModal = () => {
   const { isOpen, onClose, type } = useModal();
 
-  const isModalOpen = isOpen && type === "createServer";
+  const isModalOpen = isOpen && type === "invite";
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
