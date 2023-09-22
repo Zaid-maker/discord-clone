@@ -5,7 +5,7 @@ import qs from "query-string";
 import axios from "axios";
 
 import { useModal } from "@/hooks/use-modal-store";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -26,26 +26,43 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useParams, useRouter } from "next/navigation";
+import { ChannelType } from "@prisma/client";
 
 const formSchema = z.object({
-  name: z.string().min(1, {
-    message: "Channel name is required",
-  }),
+  name: z
+    .string()
+    .min(1, {
+      message: "Channel name is required",
+    })
+    .refine((name) => name !== "general", {
+      message: "Channel name cannot be 'general'",
+    }),
+  type: z.nativeEnum(ChannelType),
 });
 
 export const CreateChannelModal = () => {
   const params = useParams();
   const router = useRouter();
-  const { isOpen, onClose, type } = useModal();
+  const { isOpen, onClose, type, data } = useModal();
 
   const isModalOpen = isOpen && type === "createChannel";
+  const { channelType } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
+      type: channelType || ChannelType.TEXT,
     },
   });
+
+  useEffect(() => {
+    if (channelType) {
+      form.setValue("type", channelType);
+    } else {
+      form.setValue("type", ChannelType.TEXT);
+    }
+  }, [channelType, form]);
 
   const isLoading = form.formState.isSubmitting;
 
