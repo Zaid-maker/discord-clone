@@ -36,6 +36,7 @@ import {
   ShieldQuestion,
 } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const roleIconMap = {
   GUEST: null,
@@ -44,6 +45,7 @@ const roleIconMap = {
 };
 
 export const MembersModal = () => {
+  const router = useRouter();
   const { onOpen, isOpen, onClose, type, data } = useModal();
   const [loadingId, setLoadingId] = useState("");
 
@@ -62,6 +64,8 @@ export const MembersModal = () => {
       });
 
       const response = await axios.delete(url);
+
+      router.refresh();
 
       onOpen("members", { server: response.data });
     } catch (error) {
@@ -83,6 +87,8 @@ export const MembersModal = () => {
       });
 
       const response = await axios.patch(url, { role });
+
+      router.refresh();
 
       onOpen("members", { server: response.data });
     } catch (error) {
