@@ -18,7 +18,7 @@ export const DeleteServerModal = () => {
   const router = useRouter();
   const { onClose, isOpen, type, data } = useModal();
 
-  const isModalOpen = isOpen && type === "leaveServer";
+  const isModalOpen = isOpen && type === "deleteServer";
   const { server } = data;
 
   const [isLoading, setIsLoading] = useState(false);
