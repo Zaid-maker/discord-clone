@@ -1,6 +1,6 @@
 # Chat Application
 
-Discord inspired chat application using Nextjs 13 and Prisma
+Discord inspired chat application using Nextjs 13, Prisma, Clerk, shadcn/ui, TypeScript & Mysql (but I am using PostgresSQL) 
 
 ## Features
 
@@ -18,3 +18,7 @@ Discord inspired chat application using Nextjs 13 and Prisma
 
 - Node.js v18 & 20
 - Npm v9 (Important) 
+
+## API
+...... 
+
