@@ -7,6 +7,7 @@ import { db } from "@/lib/db";
 import { ChannelType, MemberRole } from "@prisma/client";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { redirect } from "next/navigation";
+import { ServerSection } from "./server-section";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -122,6 +123,11 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
           />
         </div>
         <Separator className="bg-zinc dark:bg-zin rounded-md my-2" />
+        {!!textChannels?.length && (
+          <div className="mb=2">
+            <ServerSection />
+          </div>
+        )}
       </ScrollArea>
     </div>
   );
