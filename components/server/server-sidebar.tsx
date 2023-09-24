@@ -4,7 +4,7 @@ import { ChannelType } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { ServerHeader } from "@/components/server/server-header";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ServerSearch } from "@/components/server/search-header";
+import { ServerSearch } from "@/components/server/server-search";
 
 interface ServerSidebarProps {
   serverId: string;
