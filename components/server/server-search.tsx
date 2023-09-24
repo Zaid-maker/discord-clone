@@ -1,7 +1,15 @@
 "use client";
 
 import { Search } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "../ui/command";
 
 interface ServerSearchProps {
   data: {
@@ -18,6 +26,7 @@ interface ServerSearchProps {
 }
 
 export const ServerSearch = ({ data }: ServerSearchProps) => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <button
@@ -32,6 +41,28 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search all channels and members" />
+        <CommandList>
+          <CommandEmpty>No Results Found</CommandEmpty>
+          {data.map(({ label, type, data }) => {
+            if (!data?.length) return null;
+
+            return (
+              <CommandGroup key={label} heading={label}>
+                {data?.map(({ id, icon, name }) => {
+                  return (
+                    <CommandItem key={id}>
+                      {icon}
+                      <span>{name}</span>
+                    </CommandItem>
+                  );
+                })}
+              </CommandGroup>
+            );
+          })}
+        </CommandList>
+      </CommandDialog>
     </>
   );
 };
