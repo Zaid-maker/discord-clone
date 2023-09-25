@@ -8,6 +8,7 @@ import { ChannelType, MemberRole } from "@prisma/client";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { redirect } from "next/navigation";
 import { ServerSection } from "./server-section";
+import { ServerChannel } from "./server-channel";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -131,6 +132,14 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               role={role}
               label="Text Channels"
             />
+            {textChannels.map((channel) => (
+              <ServerChannel
+                key={channel.id}
+                channel={channel}
+                role={role}
+                server={server}
+              />
+            ))}
           </div>
         )}
       </ScrollArea>
