@@ -9,15 +9,16 @@ import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { redirect } from "next/navigation";
 import { ServerSection } from "./server-section";
 import { ServerChannel } from "./server-channel";
+import { ServerMember } from "./server-member";
 
 interface ServerSidebarProps {
   serverId: string;
 }
 
 const iconMap = {
-  [ChannelType.TEXT]: <Hash className="h-4 w-4 mr-2" />,
-  [ChannelType.AUDIO]: <Mic className="h-4 w-4 mr-2" />,
-  [ChannelType.VIDEO]: <Video className="h-4 w-4 mr-2" />,
+  [ChannelType.TEXT]: <Hash className="mr-2 h-4 w-4" />,
+  [ChannelType.AUDIO]: <Mic className="mr-2 h-4 w-4" />,
+  [ChannelType.VIDEO]: <Video className="mr-2 h-4 w-4" />,
 };
 
 const roleIconMap = {
@@ -176,6 +177,21 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                 server={server}
               />
             ))}
+          </div>
+        )}
+        {!!members?.length && (
+          <div className="mb-2">
+            <ServerSection
+              sectionType="members"
+              role={role}
+              label="Members"
+              server={server}
+            />
+            <div className="space-y-[2px]">
+              {members.map((member) => (
+                <ServerMember key={member.id} member={member} server={server} />
+              ))}
+            </div>
           </div>
         )}
       </ScrollArea>
