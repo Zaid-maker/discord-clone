@@ -1,5 +1,6 @@
 "use client";
 
+import qs from "query-string";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import * as z from "zod";
@@ -74,11 +75,17 @@ export const EditChannelModal = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/servers/${server?.id}`, values);
+      const url = qs.stringifyUrl({
+        url: `/api/channels/${channel?.id}`,
+        query: {
+          serverId: server?.id,
+        },
+      });
+      await axios.patch(url, values);
 
       form.reset();
-
       router.refresh();
+      onClose();
     } catch (error) {
       console.log(error);
     }
