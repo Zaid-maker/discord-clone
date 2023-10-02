@@ -1,4 +1,4 @@
-import { Hash, Menu } from "lucide-react";
+import { Hash } from "lucide-react";
 import { MobileToggle } from "../moble-toggle";
 
 interface ChatHeaderProps {
