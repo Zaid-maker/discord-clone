@@ -1,5 +1,4 @@
 import { Hash } from "lucide-react";
-import { MobileToggle } from "@/components/moble-toggle";
 import { UserAvatar } from "@/components/user-avatar";
 
 interface ChatHeaderProps {
