@@ -23,3 +23,5 @@ const isHandler = (req: NextApiRequest, res: NextApiResponseServerIo) => {
 
     res.end()
 }
+
+export default isHandler
