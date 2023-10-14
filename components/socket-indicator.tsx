@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
 import { useSocket } from "@/components/providers/socket-provider";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 export const SocketIndicator = () => {
   const { isConnected } = useSocket();
@@ -10,7 +9,7 @@ export const SocketIndicator = () => {
   if (!isConnected) {
     return (
       <Badge variant="outline" className="bg-yellow-600 text-white border-none">
-        Fallback: Falling every 1s
+        Fallback: Polling every 1s
       </Badge>
     );
   }
