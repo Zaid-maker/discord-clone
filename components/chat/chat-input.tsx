@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
-import { Plus } from "lucide-react";
+import { Plus, Smile } from "lucide-react";
 import { Input } from "../ui/input";
 
 interface ChatInputProps {
@@ -52,7 +52,14 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                   <Input
                     disabled={isLoading}
                     className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
+                    placeholder={`Message ${
+                      type === "conversation" ? name : "#" + name
+                    }`}
+                    {...field}
                   />
+                  <div className="absolute top-7 right-8">
+                    <Smile />
+                  </div>
                 </div>
               </FormControl>
             </FormItem>
