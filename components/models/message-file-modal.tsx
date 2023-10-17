@@ -53,6 +53,11 @@ export const MessageFileModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
+  const handleClose = () => {
+    form.reset();
+    onClose();
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post("/api/servers", values);
@@ -68,7 +73,7 @@ export const MessageFileModal = () => {
   };
 
   return (
-    <Dialog open={isModalOpen}>
+    <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
