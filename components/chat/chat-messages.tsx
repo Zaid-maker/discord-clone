@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
+import { ChatWelcome } from "./chat-welcome";
+import { Member } from "@prisma/client";
 
 interface ChatMessagesProps {
   name: string;
-  member: string;
+  member: Member;
   chatId: string;
   apiUrl: string;
   socketUrl: string;
@@ -25,5 +27,10 @@ export const ChatMessages = ({
   paramValue,
   type,
 }: ChatMessagesProps) => {
-  return <div>ChatMessages</div>;
+  return (
+    <div className="flex-1 flex flex-col py-4 overflow-y-auto">
+      <div className="flex-1" />
+      <ChatWelcome type={type} name={name} />
+    </div>
+  );
 };
