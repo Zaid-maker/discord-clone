@@ -59,7 +59,7 @@ export const MessageFileModal = () => {
 
       router.refresh();
 
-      window.location.reload();
+      handleClose();
     } catch (error) {
       console.log(error);
     }
