@@ -58,7 +58,7 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.3",
+    "@types/uuid": "^9.0.5",
     "prisma": "^5.2.0"
   }
 }
