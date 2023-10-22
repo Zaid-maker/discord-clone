@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Automatic merge
     conditions:
-      - status-success=Next.js Bundle Analysis 
+      - status-success=gitStream.cm
       - base=main
     actions:
       merge:
