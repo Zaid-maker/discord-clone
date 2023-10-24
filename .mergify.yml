@@ -1,8 +1,0 @@
-pull_request_rules:
-  - name: Automatic merge
-    conditions:
-      - status-success=gitStream.cm
-      - base=main
-    actions:
-      merge:
-        method: merge
