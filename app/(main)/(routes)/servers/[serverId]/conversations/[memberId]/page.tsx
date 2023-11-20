@@ -54,7 +54,7 @@ const MemberIdPage = async ({ params }: MemberIdProps) => {
         imageUrl={otherMember.profile.imageUrl}
         name={otherMember.profile.name}
         serverId={params.serverId}
-        type="conversaton"
+        type="conversation"
       />
     </div>
   );
