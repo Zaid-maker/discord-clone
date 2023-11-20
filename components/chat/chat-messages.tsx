@@ -86,12 +86,12 @@ export const ChatMessages = ({
             {group.items.map((message: MessageWithMemberWithProfile) => (
               <ChatItem
                 key={message.id}
-                id={member.id}
+                id={message.id}
                 currentMember={member}
+                member={message.member}
                 content={message.content}
                 fileUrl={message.fileUrl}
                 deleted={message.deleted}
-                member={message.member}
                 timestamp={format(new Date(message.createdAt), DATE_FORMAT)}
                 isUpdated={message.updatedAt !== message.createdAt}
                 socketUrl={socketUrl}
